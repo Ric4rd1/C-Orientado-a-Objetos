@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+
+#include "Computadora.h"
+#include "Cliente.h"
+#include "Inventario.h"
+
+
+int main(){
+    Computadora PC("GTX 1660Ti", "Ryzen2600X", 750, 16, 1000 );
+    Cliente ricard("Ricard", 20000, 2);
+    Inventario laptop("laptop2", 3, 6);
+    cout<< "Hola: " << ricard.getNombre()<<endl;
+    cout<< "Descuento: "<< ricard.descuento(1)<< " %"<< endl;
+    return 0; 
+}
