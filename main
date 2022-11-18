@@ -1,16 +1,26 @@
-#include<iostream>
-using namespace std;
-
-#include "Computadora.h"
-#include "Cliente.h"
-#include "Inventario.h"
-
+#include "Hero.h"
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
+//Create a random 6 sided dice roll
+int diceRoll(){
+    srand(time(NULL));
+    int number = 6;
+    int result = 0;
+    result = rand() % number + 1;
+    std::cout << "press ENTER to roll..." << std::endl;
+    std::cin.ignore(); // Wait for any key
+    cout<<"Result : "<<result<<endl;
+    return result;
+}
 
 int main(){
-    Computadora PC("GTX 1660Ti", "Ryzen2600X", 750, 16, 1000 );
-    Cliente ricard("Ricard", 20000, 2);
-    Inventario laptop("laptop2", 3, 6);
-    cout<< "Hola: " << ricard.getNombre()<<endl;
-    cout<< "Descuento: "<< ricard.descuento(1)<< " %"<< endl;
-    return 0; 
+    diceRoll();
+    
+    PartyLeader TheCarismaticSong("The Carismatic Song", "Bard", "Each time you roll to use a Hero card's effect, +1 to your roll." );
+    Hero DodgeyDealer("Dodgy Dealer", "Bard", "Trade hands whith another player.", 9 );
+    TheCarismaticSong.showPartyLeader();
+    DodgeyDealer.showHero();
+    
+    return 0;
 }
