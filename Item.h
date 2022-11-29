@@ -1,3 +1,6 @@
+#ifndef ITEM_H
+#define ITEM_H
+
 #include <string>
 #include <iostream>
 
@@ -49,3 +52,5 @@ class Item {
             cout << "Effect: " << effect << endl;
         }
 };
+
+#endif
