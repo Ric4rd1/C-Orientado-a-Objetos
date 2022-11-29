@@ -19,6 +19,28 @@ class Hero:public PartyLeader{
         int getRoll(){
             return roll;
         }
+        bool getItem(){
+            return item;
+        }
+        string getItems(){
+            return items[0];
+        }
+        bool getInHand(){
+            return inHand;
+        }
+        //Setters
+        void setRoll(int _roll){
+            roll = _roll;
+        }
+        void setItem(bool _item){
+            item = _item;
+        }
+        void setItems(string _items){
+            items[0] = _items;
+        }
+        void setInHand(bool _inHand){
+            inHand = _inHand;
+        }
         //Methods
         void showHero(){
             showPartyLeader();
