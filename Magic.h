@@ -1,3 +1,6 @@
+#ifndef MAGIC_H
+#define MAGIC_H
+
 #include <string>
 #include <iostream>
 
@@ -42,3 +45,5 @@ class Magic {
             cout << "Quantity: " << quantity << endl;
         }  
 };
+
+#endif
