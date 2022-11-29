@@ -1,3 +1,5 @@
+#ifndef PARTY_LEADER_H
+#define PARTY_LEADER_H
 #include<string>
 #include <iostream>
 using namespace std;
@@ -24,6 +26,16 @@ class PartyLeader{
         string getEffect(){
             return effect;
         }
+        //Setters
+        void setName(string _name){
+            name = _name;
+        }
+        void setClassification(string _classification){
+            classification = _classification;
+        }
+        void setEffect(string _effect){
+            effect = _effect;
+        }
         //Methods
         void applyEffect(){
             cout<<"Effect: "<<effect<<endl;
@@ -35,3 +47,4 @@ class PartyLeader{
             cout<<"\n";
         }
 };
+#endif
