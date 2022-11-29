@@ -1,3 +1,6 @@
+#ifndef HERO_H
+#define HERO_H
+
 #include "PartyLeader.h"
 #include <string>
 #include <iostream>
@@ -47,3 +50,5 @@ class Hero:public PartyLeader{
             cout<<"Roll requirement: "<<roll<<endl;
         }
 };
+
+#endif
