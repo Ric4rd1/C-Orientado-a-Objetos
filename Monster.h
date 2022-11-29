@@ -39,6 +39,25 @@ class Monster{
         string getEffect(){
             return effect;
         }
+        //Setters
+        void setName(string _name){
+            name = _name;
+        }
+        void setHeroRequirement(string _heroRequirement){
+            heroRequirement = _heroRequirement;
+        }
+        void setPunishableRoll(int _punishableRoll){
+            punishableRoll = _punishableRoll;
+        }
+        void setRollRequirement(int _rollRequirement){
+            rollRequirement = _rollRequirement;
+        }
+        void setPunishment(string _punishment){
+            punishment = _punishment;
+        }
+        void setEffect(string _effect){
+            effect = _effect;
+        }
         //Methods
         void showMonster(){
             cout<<"Name: "<<name<<endl;
