@@ -1,5 +1,9 @@
-#include <string>
-#include <iostream>
+#ifndef MONSTER_H
+#define MONSTER_H
+
+#include<string>
+#include<iostream>
+
 using namespace std;
 
 class Monster{
@@ -78,3 +82,5 @@ class Monster{
         
 
 };
+
+#endif
