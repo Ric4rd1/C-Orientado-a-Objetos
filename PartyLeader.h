@@ -11,6 +11,11 @@ class PartyLeader{
         string effect;
     public:
         //constructor
+        PartyLeader(){
+            name = " ";
+            classification = " ";
+            effect = " ";
+        }
         PartyLeader(string _name, string _classification, string _effect){
             name = _name;
             classification = _classification;
@@ -44,7 +49,6 @@ class PartyLeader{
             cout<<"Name: "<<name<<endl;
             cout<<"Class: "<<classification<<endl;
             cout<<"Ability: "<<effect<<endl;
-            cout<<"\n";
         }
 };
 #endif
