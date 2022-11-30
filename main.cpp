@@ -1,6 +1,7 @@
 #include "Hero.h"
 #include "PartyLeader.h"
 #include "Deck.h"
+#include "Card.h"
 
 #include <cstdlib>
 #include <ctime>
@@ -26,7 +27,6 @@ int main(){
     diceRoll();
     Deck deck;
     deck.initializeDeck();
-    
     
     
     /*
