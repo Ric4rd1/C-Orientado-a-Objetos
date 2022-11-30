@@ -3,27 +3,24 @@
 
 #include <string>
 #include <iostream>
+#include "Card.h"
 
 using namespace std;
 
-class Item {
+class Item: public Card {
     private:
-        string name;
         string effect;
         int quantity;
         bool inHand  = true;
     public:
         //Constructor
-        Item(string _name, string _effect, int _quantity) {
+        Item(string _name, string _effect, int _quantity):Card(_name){
             name = _name;
             effect = _effect;
             quantity = _quantity;
             inHand = true;
         }
         //Getters
-        string getName() {
-            return name;
-        }
         string getEffect() {
             return effect;
         }
@@ -34,9 +31,6 @@ class Item {
             return quantity;
         }
         //Setters
-        void setName(string _name) {
-            name = _name;
-        }
         void setEffect(string _effect) {
             effect = _effect;
         }
@@ -47,7 +41,8 @@ class Item {
             quantity = _quantity;
         }
         //Methods
-        void showItem() {
+        void showCard() {
+            cout<<"--------ITEM--------"<<endl;
             cout << "Name: " << name << endl;
             cout << "Effect: " << effect << endl;
         }
