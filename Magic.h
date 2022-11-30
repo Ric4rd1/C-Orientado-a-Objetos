@@ -3,25 +3,21 @@
 
 #include <string>
 #include <iostream>
+#include "Card.h"
 
 using namespace std;
 
-class Magic {
+class Magic: public Card {
     private:
-        string name;
         string effect;
         int quantity;
     public:
         //Constructor
-        Magic(string _name, string _effect, int _quantity) {
-            name = _name;
+        Magic(string _name, string _effect, int _quantity):Card(_name){
             effect = _effect;
             quantity = _quantity;
         }
         //Getters
-        string getName() {
-            return name;
-        }
         string getEffect() {
             return effect;
         }
@@ -29,9 +25,6 @@ class Magic {
             return quantity;
         }
         //Setters
-        void setName(string _name) {
-            name = _name;
-        }
         void setEffect(string _effect) {
             effect = _effect;
         }
@@ -39,7 +32,8 @@ class Magic {
             quantity = _quantity;
         }
         //Methods
-        void showMagic() {
+        void showCard() {
+            cout<<"--------MAGIC--------"<<endl;
             cout << "Name: " << name << endl;
             cout << "Effect: " << effect << endl;
             cout << "Quantity: " << quantity << endl;
