@@ -2,6 +2,7 @@
 #define HERO_H
 
 #include "PartyLeader.h"
+#include "Card.h"
 #include <string>
 #include <iostream>
 
@@ -15,7 +16,7 @@ class Hero:public PartyLeader{
         bool inHand = true;
     public:
         //Constructor
-        Hero(string _name, string _classification, string _effect, int _roll):PartyLeader(_name, _classification, _effect) {
+        Hero(string _name, string _classification, string _effect, int _roll):PartyLeader(_name, _classification, _effect){
             roll = _roll;
         }
         //Getters
@@ -45,8 +46,11 @@ class Hero:public PartyLeader{
             inHand = _inHand;
         }
         //Methods
-        void showHero(){
-            showPartyLeader();
+        void showCard(){
+            cout<<"--------HERO--------"<<endl;
+            cout<<"Name: "<< name<<endl;
+            cout<<"Class: "<< classification<<endl;
+            cout<<"Ability: "<< effect<<endl;
             cout<<"Roll requirement: "<<roll<<endl;
         }
 };
