@@ -19,48 +19,20 @@ using namespace std;
 
 class Deck{
     private:
-        vector<PartyLeader> partyLeaders;
-        vector<Hero> heroes;
-        vector<Monster> monsters;
-        vector<Magic> magic;
-        vector<Item> items;
+      vector<Card*> deck;
 
     public:
         //Constructor
         Deck(){
-
+            deck;
         }
         //Getters
-        vector<PartyLeader> getPartyLeaders(){
-            return partyLeaders;
-        }
-        vector<Hero> getHeroes(){
-            return heroes;
-        }
-        vector<Monster> getMonsters(){
-            return monsters;
-        }
-        vector<Magic> getMagic(){
-            return magic;
-        }
-        vector<Item> getItems(){
-            return items;
+        vector<Card*> getDeck(){
+            return deck;
         }
         //Setters
-        void setPartyLeaders(vector<PartyLeader> _partyLeaders){
-            partyLeaders = _partyLeaders;
-        }
-        void setHeroes(vector<Hero> _heroes){
-            heroes = _heroes;
-        }
-        void setMonsters(vector<Monster> _monsters){
-            monsters = _monsters;
-        }
-        void setMagic(vector<Magic> _magic){
-            magic = _magic;
-        }
-        void setItems(vector<Item> _items){
-            items = _items;
+        void setDeck(vector<Card*> _deck){
+            deck = _deck;
         }
         //Methods
         //vector<PartyLeader> initializePartyLeaders();
@@ -78,13 +50,15 @@ class Deck{
 
 void Deck::initializeDeck(){
 
+        //vector<Card*> deck;
+        /*
         vector<string> name_;
         vector<string> classification_;
         vector<string> effect_;
-        vector<string> roll_;
-
+        vector<int> roll_;
+        */
         //input filename
-	string file= "Cards.txt";
+	string file= "CardsTab.txt";
     string name, classification, effect, roll;
 	//number of lines
 	int i = 0;
@@ -98,28 +72,62 @@ void Deck::initializeDeck(){
 
 		while (!coeff.eof()) //while the end of file is NOT reached
 		{
-			//I have 4 sets {alpha, CD, CL, CY} so use 4 getlines
-			getline(coeff, name, ',');
-			name_.push_back(name);
-			getline(coeff, classification, ',');
-			classification_.push_back(classification);
-			getline(coeff, effect, ',');
-			effect_.push_back(effect);
-			getline(coeff, roll, '\n'); //new line after CY
-			roll_.push_back(roll);
-			
+            
+			//I have 4 sets so use 4 getlines
+			getline(coeff, name, '\t');
+			//name_.push_back(name);
+			getline(coeff, classification, '\t');
+			//classification_.push_back(classification);
+			getline(coeff, effect, '\t');
+			//effect_.push_back(effect);
+			getline(coeff, roll, '\n'); //new line
+            /*
+            cout<<name<<endl;
+            cout<<classification<<endl;
+            cout<<effect<<endl;
+            cout<<roll<<endl;
+            */
+            
+
+			if (i>5){
+                int roll_out = stoi(roll);
+			    //roll_.push_back(roll_out);
+                deck.push_back(Hero(name, classification, effect, roll_out));    
+            }
+            else{
+                deck.push_back(PartyLeader(name, classification, effect));
+            }
+            
 			i += 1; //increment number of lines
 		}
 		coeff.close(); //closing the file
 		cout << "Number of entries: " << i-1 << endl;
 	}
 	else cout << "Unable to open file"; //if the file is not open output
+    deck[0].showCard();
+    deck[1].showCard();
+    deck[2].showCard();
+    deck[3].showCard();
+    deck[4].showCard();
+    deck[5].showCard();
+    deck[6].showCard();
+    deck[7].showCard();
+    deck[8].showCard();
+    deck[9].showCard();
+    deck[10].showCard();
 
+    
+    //partyLeaders[0].showPartyLeader();
+    //heroes[0].showHero();
+
+    /*
     cout << "Name" << "\t" << "Class" << "\t" << "Effect" << "\t" << "Roll" << endl;
     for (int j = 0; j < i; j++) {
 		cout << name_[j] << "\t" << classification_[j] << "\t" << effect_[j] << "\t" << roll_[j] << endl;
 		
-	}
+	
+    }
+    */
 }
 
 /*
