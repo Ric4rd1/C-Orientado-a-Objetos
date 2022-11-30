@@ -2,29 +2,24 @@
 #define PARTY_LEADER_H
 #include<string>
 #include <iostream>
+#include "Card.h"
 using namespace std;
 
-class PartyLeader{
-    private:
-        string name;
+class PartyLeader: public Card {
+    protected:
         string classification;
         string effect;
     public:
-        //constructor
-        PartyLeader(){
-            name = " ";
+        //Constructor
+        PartyLeader():Card(){
             classification = " ";
             effect = " ";
         }
-        PartyLeader(string _name, string _classification, string _effect){
-            name = _name;
+        PartyLeader(string _name, string _classification, string _effect): Card(_name){
             classification = _classification;
             effect = _effect;
         }
         //Getters
-        string getName (){
-            return name;
-        }
         string getClassification (){
             return classification;
         }
@@ -32,9 +27,6 @@ class PartyLeader{
             return effect;
         }
         //Setters
-        void setName(string _name){
-            name = _name;
-        }
         void setClassification(string _classification){
             classification = _classification;
         }
@@ -45,7 +37,8 @@ class PartyLeader{
         void applyEffect(){
             cout<<"Effect: "<<effect<<endl;
         }
-        void showPartyLeader (){
+        void showCard (){
+            cout<<"--------PARTY LEADER--------"<<endl;
             cout<<"Name: "<<name<<endl;
             cout<<"Class: "<<classification<<endl;
             cout<<"Ability: "<<effect<<endl;
