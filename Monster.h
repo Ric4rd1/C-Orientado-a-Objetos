@@ -3,12 +3,12 @@
 
 #include<string>
 #include<iostream>
+#include "Card.h"
 
 using namespace std;
 
-class Monster{
+class Monster: public Card{
     private:
-        string name;
         string heroRequirement;
         int punishableRoll;
         int rollRequirement;
@@ -16,8 +16,7 @@ class Monster{
         string effect;
     public:
         //Constructor
-        Monster(string _name, string _heroRequirement, int _punishableRoll, int _rollrequirement, string _punishment, string _effect){
-            name = _name;
+        Monster(string _name, string _heroRequirement, int _punishableRoll, int _rollrequirement, string _punishment, string _effect):Card(_name){
             heroRequirement = _heroRequirement;
             punishableRoll = _punishableRoll;
             rollRequirement = _rollrequirement;
@@ -25,9 +24,6 @@ class Monster{
             effect = _effect;
         }
         //Getters
-        string getName(){
-            return name;
-        }
         string getHeroRequirement(){
             return heroRequirement;
         }
@@ -44,9 +40,6 @@ class Monster{
             return effect;
         }
         //Setters
-        void setName(string _name){
-            name = _name;
-        }
         void setHeroRequirement(string _heroRequirement){
             heroRequirement = _heroRequirement;
         }
@@ -63,7 +56,8 @@ class Monster{
             effect = _effect;
         }
         //Methods
-        void showMonster(){
+        void showCard(){
+            cout<<"--------MOSNTER--------"<<endl;
             cout<<"Name: "<<name<<endl;
             cout<<"Hero Requirement: "<<heroRequirement<<endl;
             cout<<"Punishable Roll: "<<punishableRoll<<endl;
