@@ -27,14 +27,8 @@ int main(){
     diceRoll();
     Deck deck;
     deck.initializeDeck();
+    deck.showDeck();
     
-    
-    /*
-    PartyLeader TheCarismaticSong("The Carismatic Song", "Bard", "Each time you roll to use a Hero card's effect, +1 to your roll." );
-    Hero DodgeyDealer("Dodgy Dealer", "Bard", "Trade hands whith another player.", 9 );
-    TheCarismaticSong.showPartyLeader();
-    DodgeyDealer.showHero();
-    */
     
     return 0;
 }
