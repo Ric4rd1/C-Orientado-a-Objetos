@@ -13,14 +13,16 @@ class Monster: public Card{
         int punishableRoll;
         int rollRequirement;
         string punishment;
+        string reward;
         string effect;
     public:
         //Constructor
-        Monster(string _name, string _heroRequirement, int _punishableRoll, int _rollrequirement, string _punishment, string _effect):Card(_name){
+        Monster(string _name, string _heroRequirement, int _punishableRoll, int _rollrequirement, string _punishment, string _reward, string _effect):Card(_name){
             heroRequirement = _heroRequirement;
             punishableRoll = _punishableRoll;
             rollRequirement = _rollrequirement;
             punishment = _punishment;
+            reward = _reward;
             effect = _effect;
         }
         //Getters
@@ -35,6 +37,9 @@ class Monster: public Card{
         }
         string getPunishment(){
             return punishment;
+        }
+        string getReward(){
+            return reward;
         }
         string getEffect(){
             return effect;
@@ -52,6 +57,9 @@ class Monster: public Card{
         void setPunishment(string _punishment){
             punishment = _punishment;
         }
+        void setReward(string _reward){
+            reward = _reward;
+        }
         void setEffect(string _effect){
             effect = _effect;
         }
@@ -63,6 +71,7 @@ class Monster: public Card{
             cout<<"Punishable Roll: "<<punishableRoll<<endl;
             cout<<"Roll Requirement: "<<rollRequirement<<endl;
             cout<<"Punishment: "<<punishment<<endl;
+            cout<<"Reward: "<<reward<<endl;
             cout<<"Effect: "<<effect<<endl;
             cout<<"\n";
         }
