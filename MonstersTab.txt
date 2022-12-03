@@ -1,0 +1,10 @@
+name	heroRequirement	punishableRoll	rollRequirement	punishment	reward	effect
+Terratuga	1	7	11	SACRIFICE a Hero card.	SLAY this Monster card	Your Hero cards cannot be destroyed
+Abyss Queen	2	5	8	SACRIFICE a Hero card.	SLAY this Monster card	"Each time another player plays a Modifier card on one of your rolls, +1 to your roll."
+Dark Dragon King	2(1-bard)	4	8	DISCARD 2 cards	SLAY this Monster card	"Each time you roll for a Hero card's effect, +1 to your roll."
+Orthus	2(1-magic)	4	8	DISCARD 2 cards	SLAY this Monster card	"Each time you DRAW a Magin card, you may play it immediately"
+Rex Major	2(1-Guardian)	4	8	DISCARD 2 cards	SLAY this Monster card	"Each time you Draw a Modifer card, you may reveal it and Draw a second card."
+Corrupted Sabretooth	3	6	9	SACRIFICE a Hero card.	SLAY this Monster card and DRAW a card	"Each time you would DESTROY a Hero card, you may STEAK that Hero card instead."
+Mega Slime	4	7	8	SACRIFICE a Hero card.	SLAY this Monster and DRAW 2 cards.	You may spend an extra actoin point on each of your turns.
+Dracos	1	8	5	SACRIFICE a Hero card.	SLAY this Monster card.	"Each time a Hero card in your Party is destroyed, you may DRAW a card."
+Titan Wyvern	2(1-Fighter)	4	8	DISCARD 2 cards	SLAY this Monster card	"Each time you roll for a Challenge card, +1 to your roll"
