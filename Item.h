@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+
 #include "Card.h"
 
 using namespace std;
@@ -45,7 +46,11 @@ class Item: public Card {
             cout << "Name: " << name << endl;
             cout << "Effect: " << effect << endl;
             cout << "Quantity: " << quantity << endl;
-            cout << "Cursed: " << cursed << endl;
+            if (cursed) {
+                cout << "Cursed: Yes" << endl;
+            } else {
+                cout << "Cursed: No" << endl;
+            }
 
         }
 };
