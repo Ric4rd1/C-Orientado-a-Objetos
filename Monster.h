@@ -83,7 +83,6 @@ class Monster: public Card{
             }
         }
         
-
 };
 
 #endif
