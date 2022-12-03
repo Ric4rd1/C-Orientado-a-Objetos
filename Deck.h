@@ -1,4 +1,4 @@
-#ifndef DECK_H
+    #ifndef DECK_H
 #define DECK_H
 
 #include "Monster.h"
@@ -35,35 +35,27 @@ class Deck{
             deck = _deck;
         }
         //Methods
-        //vector<PartyLeader> initializePartyLeaders();
-
         void initializeDeck();
 
-        /*
-        void showLeaders(vector<PartyLeader> x){
-            for (auto i: x) {
-                std::cout << i << ' '; 
+        void showDeck(){
+            for(int i = 0; i < deck.size(); i++){
+                deck[i]->showCard();
             }
         }
-        */
+        
 };
 
 void Deck::initializeDeck(){
+        //initialize Heroes
 
-        //vector<Card*> deck;
-        /*
-        vector<string> name_;
-        vector<string> classification_;
-        vector<string> effect_;
-        vector<int> roll_;
-        */
-        //input filename
-	string file= "CardsTab.txt";
+    //input filename
+	string fileHeroes= "HeroesTab.txt";
     string name, classification, effect, roll;
+
 	//number of lines
 	int i = 0;
 
-	ifstream coeff(file); //opening the file.
+	ifstream coeff(fileHeroes); //opening the file.
 	if (coeff.is_open()) //if the file is open
 	{
 		//ignore first line
@@ -75,27 +67,18 @@ void Deck::initializeDeck(){
             
 			//I have 4 sets so use 4 getlines
 			getline(coeff, name, '\t');
-			//name_.push_back(name);
 			getline(coeff, classification, '\t');
-			//classification_.push_back(classification);
 			getline(coeff, effect, '\t');
-			//effect_.push_back(effect);
 			getline(coeff, roll, '\n'); //new line
-            /*
-            cout<<name<<endl;
-            cout<<classification<<endl;
-            cout<<effect<<endl;
-            cout<<roll<<endl;
-            */
-            
 
 			if (i>5){
                 int roll_out = stoi(roll);
-			    //roll_.push_back(roll_out);
-                deck.push_back(Hero(name, classification, effect, roll_out));    
+                Hero* hero = new Hero(name, classification, effect, roll_out);
+                deck.push_back(hero);    
             }
             else{
-                deck.push_back(PartyLeader(name, classification, effect));
+                PartyLeader* leader = new PartyLeader(name, classification, effect);
+                deck.push_back(leader);
             }
             
 			i += 1; //increment number of lines
@@ -104,84 +87,87 @@ void Deck::initializeDeck(){
 		cout << "Number of entries: " << i-1 << endl;
 	}
 	else cout << "Unable to open file"; //if the file is not open output
-    deck[0].showCard();
-    deck[1].showCard();
-    deck[2].showCard();
-    deck[3].showCard();
-    deck[4].showCard();
-    deck[5].showCard();
-    deck[6].showCard();
-    deck[7].showCard();
-    deck[8].showCard();
-    deck[9].showCard();
-    deck[10].showCard();
 
-    
-    //partyLeaders[0].showPartyLeader();
-    //heroes[0].showHero();
 
-    /*
-    cout << "Name" << "\t" << "Class" << "\t" << "Effect" << "\t" << "Roll" << endl;
-    for (int j = 0; j < i; j++) {
-		cout << name_[j] << "\t" << classification_[j] << "\t" << effect_[j] << "\t" << roll_[j] << endl;
-		
-	
-    }
-    */
-}
-
-/*
-vector<PartyLeader> Deck::initializePartyLeaders(){
-    
-    
+            //initialize Monsters
 
     //input filename
-	string file= "Cards.txt";
-    string name, classification, effect, roll;
-	//number of lines
-	int i = 0;
+	string fileMonsters= "MonstersTab3.txt";
+    string nameMonster, heroRequirement, punishableRoll, rollRequirement, punishment, reward, effectMonster;
 
-	ifstream coeff(file); //opening the file.
-	if (coeff.is_open()) //if the file is open
+	//number of lines
+	int j = 0;
+
+	ifstream coeff1(fileMonsters); //opening the file.
+	if (coeff1.is_open()) //if the file is open
 	{
 		//ignore first line
 		string line;
-		getline(coeff, line);
+		getline(coeff1, line);
 
-		while (!coeff.eof()) //while the end of file is NOT reached
+		while (!coeff1.eof()) //while the end of file is NOT reached
 		{
-			//I have 4 columns {name, classification, effect, roll} so use 4 getlines
-			getline(coeff, name, ',');
-			name_.push_back(name);
-			getline(coeff, classification, ',');
-			classification_.push_back(classification);
-			getline(coeff, effect, ',');
-			effect_.push_back(effect);
-			getline(coeff, roll, '\n'); //new line after CY
-			roll_.push_back(roll);
+    
+			//I have 4 sets so use 4 getlines
+			getline(coeff1, nameMonster, '\t');
+			getline(coeff1, heroRequirement, '\t');
+			getline(coeff1, punishableRoll, '\t');
+            getline(coeff1, rollRequirement, '\t');
+            getline(coeff1, punishment, '\t');
+            getline(coeff1, reward, '\t');
+			getline(coeff1, effectMonster, '\n'); //new line
+
 			
+            int punishableRoll_out = stoi(punishableRoll);
+            int rollRequirement_out = stoi(rollRequirement);
+            Monster* monster = new Monster(nameMonster, heroRequirement, punishableRoll_out, rollRequirement_out, punishment, reward, effectMonster);
+            deck.push_back(monster);    
+            
+			j += 1; //increment number of lines
+		}
+		coeff1.close(); //closing the file
+		cout << "Number of entries: " << j-1 << endl;
+	}
+	else cout << "Unable to open file"; //if the file is not open output
+    
+
+            //initialize Items
+
+    //input filename
+	string fileItems= "ItemsTab.txt";
+    string nameItem, cursed, effectItem, quantity;
+
+	//number of lines
+	int k = 0;
+
+	ifstream coeff2(fileItems); //opening the file.
+	if (coeff2.is_open()) //if the file is open
+	{
+		//ignore first line
+		string line;
+		getline(coeff2, line);
+
+		while (!coeff2.eof()) //while the end of file is NOT reached
+		{
+            
+			//I have 4 sets so use 4 getlines
+			getline(coeff2, nameItem, '\t');
+			getline(coeff2, cursed, '\t');
+			getline(coeff2, effectItem, '\t');
+			getline(coeff2, quantity, '\n'); //new line
+
+			bool cursed_out = (cursed == "1");
+            int quantity_out = stoi(quantity);
+            Item* item = new Item(nameItem, effectItem, quantity_out, cursed_out);
+            deck.push_back(item);    
+           
 			i += 1; //increment number of lines
 		}
 		coeff.close(); //closing the file
 		cout << "Number of entries: " << i-1 << endl;
 	}
 	else cout << "Unable to open file"; //if the file is not open output
-    
-    //initialize PartyLeader vector
-    for ( i = 1; i < 7; i++) { // from 1 to 6
-    PartyLeader *i = new PartyLeader(name_[0], classification_[0], effect_[0]);
-    partyLeaders.push_back(*i);
-    }
-    
-    
-    
-    cout << "Name" << "\t" << "Class" << "\t" << "Effect" << "\t" << "Roll" << endl;
-    for (int j = 0; j < i; j++) {
-		cout << name_[j] << "\t" << classification_[j] << "\t" << effect_[j] << "\t" << roll_[j] << endl;
-		
-	}
-    
-   return partyLeaders;
+
 }
-*/
+
 #endif
