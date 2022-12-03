@@ -11,21 +11,20 @@ class Item: public Card {
     private:
         string effect;
         int quantity;
-        bool inHand  = true;
+        bool cursed;
     public:
         //Constructor
-        Item(string _name, string _effect, int _quantity):Card(_name){
-            name = _name;
+        Item(string _name, string _effect, int _quantity, bool _cursed):Card(_name){
             effect = _effect;
             quantity = _quantity;
-            inHand = true;
+            cursed = _cursed;
         }
         //Getters
         string getEffect() {
             return effect;
         }
-        bool getInHand() {
-            return inHand;
+        bool getCursed() {
+            return cursed;
         }
         int getQuantity() {
             return quantity;
@@ -34,8 +33,8 @@ class Item: public Card {
         void setEffect(string _effect) {
             effect = _effect;
         }
-        void setInHand(bool _inHand) {
-            inHand = _inHand;
+        void setCursed(bool _cursed) {
+            cursed = _cursed;
         }
         void setQuantity(int _quantity) {
             quantity = _quantity;
@@ -45,6 +44,9 @@ class Item: public Card {
             cout<<"--------ITEM--------"<<endl;
             cout << "Name: " << name << endl;
             cout << "Effect: " << effect << endl;
+            cout << "Quantity: " << quantity << endl;
+            cout << "Cursed: " << cursed << endl;
+
         }
 };
 
