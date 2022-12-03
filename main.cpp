@@ -2,6 +2,7 @@
 #include "PartyLeader.h"
 #include "Deck.h"
 #include "Card.h"
+#include "Challenger.h"
 
 #include <cstdlib>
 #include <ctime>
@@ -9,7 +10,7 @@
 #include <string>
 #include <vector>
 
-//Create a random 6 sided dice roll
+//Create 2 random 6 sided dice roll
 int diceRoll(){
     srand(time(NULL));
     int number = 6;
@@ -24,11 +25,25 @@ int diceRoll(){
 }
 
 int main(){
+    //Create a roll dice with 2 6 sided dice
     diceRoll();
+
+    //Create a deck
     Deck deck;
+
+    //Initialize the deck
     deck.initializeDeck();
+
+    //Show the deck
     deck.showDeck();
+
+    cout<<"#############################################"<<endl;
+    cout<<"Shuffling deck..."<<endl;
+    cout<<"#############################################"<<endl;
     
+    //Shuffle the deck in a random order and show the deck again
+    deck.shuffleDeck();
+    deck.showDeck();
     
     return 0;
 }
