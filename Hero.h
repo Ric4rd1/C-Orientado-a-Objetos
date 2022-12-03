@@ -3,6 +3,7 @@
 
 #include "PartyLeader.h"
 #include "Card.h"
+
 #include <string>
 #include <iostream>
 
@@ -13,7 +14,7 @@ class Hero:public PartyLeader{
         int roll;
         bool item = false;
         string items[0];
-        bool inHand = true;
+        bool inHand = false;
     public:
         //Constructor
         Hero(string _name, string _classification, string _effect, int _roll):PartyLeader(_name, _classification, _effect){
