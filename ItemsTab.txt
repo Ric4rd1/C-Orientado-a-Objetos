@@ -1,0 +1,13 @@
+name	cursed	effect	quantity
+Particularly Rusty Coin	0	"If you unsuccessfully roll to use the equipped Hero card's effect, DRAW a card."	2
+Really Big Ring	0	"Each time you roll to use the equipped Hero card's effect, +2 to your roll."	2
+Wizard Mask	0	The equipped Hero card is considered a Wizard instead of its original class.	1
+Bard Mask	0	The equipped Hero card is considered a Bard instead of its original class.	1
+Decoy Doll	0	"If the equipped Hero card would be sacrificed or destroyed, move Decoy Doll to the discard pile instead."	1
+Fighter Mask	0	The equipped Hero card is considered a Fighter instead of its original class.	1
+Guardian Mask	0	The equipped Hero card is considered a Fighter instead of its original class.	1
+Ranger Mask	0	The equipped Hero card is considered a Ranger instead of its original class.	1
+Thief Mask	0	The equipped Hero card is considered a Thief instead of its original class.	1
+Curse fo the Snake's Eyes	1	"Each time you roll to use the equipped Hero card's effect, -2 to your roll."	2
+Sealing Key	1	You cannot use the equipped Hero card's effect.	1
+Suspiciously Shiny Coin	1	"If you successfully roll to use the equipped Hero card's effect, DISCARD a card."	1
