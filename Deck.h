@@ -1,4 +1,4 @@
-    #ifndef DECK_H
+#ifndef DECK_H
 #define DECK_H
 
 #include "Monster.h"
@@ -6,6 +6,8 @@
 #include "Hero.h"
 #include "PartyLeader.h"
 #include "Item.h"
+#include "Modifier.h"
+#include "Challenger.h"
 
 #include <string>
 #include <iostream>
@@ -40,9 +42,17 @@ class Deck{
         void showDeck(){
             for(int i = 0; i < deck.size(); i++){
                 deck[i]->showCard();
+                cout << endl;
             }
         }
-        
+        void shuffleDeck(){
+            for(int i = 0; i < deck.size(); i++){
+                int random = rand() % deck.size();
+                Card* temp = deck[i];
+                deck[i] = deck[random];
+                deck[random] = temp;
+            }
+        }
 };
 
 void Deck::initializeDeck(){
@@ -84,7 +94,7 @@ void Deck::initializeDeck(){
 			i += 1; //increment number of lines
 		}
 		coeff.close(); //closing the file
-		cout << "Number of entries: " << i-1 << endl;
+
 	}
 	else cout << "Unable to open file"; //if the file is not open output
 
@@ -92,11 +102,8 @@ void Deck::initializeDeck(){
             //initialize Monsters
 
     //input filename
-	string fileMonsters= "MonstersTab3.txt";
+	string fileMonsters= "MonstersTab.txt";
     string nameMonster, heroRequirement, punishableRoll, rollRequirement, punishment, reward, effectMonster;
-
-	//number of lines
-	int j = 0;
 
 	ifstream coeff1(fileMonsters); //opening the file.
 	if (coeff1.is_open()) //if the file is open
@@ -123,10 +130,10 @@ void Deck::initializeDeck(){
             Monster* monster = new Monster(nameMonster, heroRequirement, punishableRoll_out, rollRequirement_out, punishment, reward, effectMonster);
             deck.push_back(monster);    
             
-			j += 1; //increment number of lines
+			i += 1; //increment number of lines
 		}
 		coeff1.close(); //closing the file
-		cout << "Number of entries: " << j-1 << endl;
+
 	}
 	else cout << "Unable to open file"; //if the file is not open output
     
@@ -136,9 +143,6 @@ void Deck::initializeDeck(){
     //input filename
 	string fileItems= "ItemsTab.txt";
     string nameItem, cursed, effectItem, quantity;
-
-	//number of lines
-	int k = 0;
 
 	ifstream coeff2(fileItems); //opening the file.
 	if (coeff2.is_open()) //if the file is open
@@ -156,7 +160,13 @@ void Deck::initializeDeck(){
 			getline(coeff2, effectItem, '\t');
 			getline(coeff2, quantity, '\n'); //new line
 
-			bool cursed_out = (cursed == "1");
+			bool cursed_out;
+            if(cursed == "1"){
+                cursed_out = true;
+            }
+            else{
+                cursed_out = false;
+            }
             int quantity_out = stoi(quantity);
             Item* item = new Item(nameItem, effectItem, quantity_out, cursed_out);
             deck.push_back(item);    
@@ -164,10 +174,87 @@ void Deck::initializeDeck(){
 			i += 1; //increment number of lines
 		}
 		coeff.close(); //closing the file
-		cout << "Number of entries: " << i-1 << endl;
+
 	}
 	else cout << "Unable to open file"; //if the file is not open output
 
+
+        //initialize Magic
+
+    //input filename
+	string fileMagic= "MagicTab.txt";
+    string nameMagic, effectMagic;
+
+	ifstream coeff3(fileMagic); //opening the file.
+	if (coeff3.is_open()) //if the file is open
+	{
+		//ignore first line
+		string line;
+		getline(coeff3, line);
+
+		while (!coeff3.eof()) //while the end of file is NOT reached
+		{
+            
+			//I have 4 sets so use 4 getlines
+			getline(coeff3, nameMagic, '\t');
+			getline(coeff3, effectMagic, '\n'); //new line
+
+            Magic* magic = new Magic(nameMagic, effectMagic);
+            deck.push_back(magic);   
+
+			i += 1; //increment number of lines
+		}
+		coeff.close(); //closing the file
+
+	}
+	else cout << "Unable to open file"; //if the file is not open output
+
+
+        //initialize Modifiers
+
+    //input filename
+	string fileModifiers= "ModifiersTab.txt";
+    string nameModifier, plus, minus;
+
+	//number of lines
+	int m = 0;
+
+	ifstream coeff4(fileModifiers); //opening the file.
+	if (coeff4.is_open()) //if the file is open
+	{
+		//ignore first line
+		string line;
+		getline(coeff4, line);
+
+		while (!coeff4.eof()) //while the end of file is NOT reached
+		{
+            
+			//I have 4 sets so use 4 getlines
+			getline(coeff4, nameModifier, '\t');
+			getline(coeff4, plus, '\t');
+			getline(coeff4, minus, '\n'); //new line
+
+                int plus_out = stoi(plus);
+                int minus_out = stoi(minus);
+                Modifier* modifier = new Modifier(nameModifier, plus_out, minus_out);
+                deck.push_back(modifier);    
+            
+			i += 1; //increment number of lines
+		}
+		coeff.close(); //closing the file
+
+	}
+	else cout << "Unable to open file"; //if the file is not open output
+
+
+        //Initialize Challengers
+    
+    for (int j = 0; j <15; j++){
+        Challenger* challenger = new Challenger();
+        deck.push_back(challenger);
+        i += 1;
+    }
+	cout << "Number of entries: " << i-1 << endl;
 }
 
 #endif
