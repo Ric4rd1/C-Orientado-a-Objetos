@@ -31,5 +31,6 @@ class Card {
         virtual void showCard() {
             cout << "Name: " << name << endl;
         }
+    
 };
 #endif
