@@ -1,0 +1,9 @@
+name	effect	quantity
+Call to the Fallen	Search the discard pile for a Hero card and add it to your hand.
+Critical Boost	DRAW 3 cards and DISCARD a card.
+Destructive Spell	"DISCARD a card, then DESTROY a Hero card."
+Enchanted Spell	+2 to all of your rolls until the end of your turn.
+Entangling Trap	"DISCARD 2 cards, then STEAL a Hero card."
+Forced Exchange	"Choose a player. STEAL a Hero card from that player's Party, then move a Hero card from your Party to that player's Party."
+Forceful Winds	Return every equipped item card to its respective player's hand.
+Winds of Change	"Return an Item card equipped to any player's Hero card to that player's hand, then DRAW a card."
