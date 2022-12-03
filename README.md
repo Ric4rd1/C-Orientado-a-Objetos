@@ -5,6 +5,7 @@ Tu y tu amigo estan programando su juego favorito de cartas que juegan todas las
 Por lo tanto usas diversas clases para poder instanciar todas las cartas necesarias en la baraja. Como el número de cartas es muy grande decides crear un archivo txt con todas las características de las cartas para poder importarlas desde ahí e inicialisarlas. El te dice que es importante que la baraja tenga metodos donde se puedan mostrar las cartas, revolverlas y contarlas y asi poderlas implementarlas en el juego final. 
 
   Metodos que la baraja tiene:
+  
     -initializeDeck()
     
     -showDeck()
